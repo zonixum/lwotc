@@ -122,6 +122,109 @@ static function bool AbilityTagExpandHandler(string InString, out string OutStri
 		case 'GRAZING_FIRE_SUCCESS_CHANCE':
 			Outstring = string (class 'X2Ability_PerkPackAbilitySet'.default.GRAZING_FIRE_SUCCESS_CHANCE);
 			return true;
+		case 'IMPULSE_AIM_BONUS':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.IMPULSE_AIM_BONUS);
+			return true;
+		case 'IMPULSE_CRIT_BONUS':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.IMPULSE_CRIT_BONUS);
+			return true;
+		case 'MAIM_AMMO_COST':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.MAIM_AMMO_COST);
+			return true;
+		case 'MAIM_COOLDOWN':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.MAIM_COOLDOWN);
+			return true;
+		case 'LICKYOURWOUNDS_HEALAMOUNT':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.LICKYOURWOUNDS_HEALAMOUNT);
+			return true;
+		case 'LICKYOURWOUNDS_MAXHEALAMOUNT':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.LICKYOURWOUNDS_MAXHEALAMOUNT);
+			return true;
+		case 'PRESERVATION_DEFENSE_BONUS':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.PRESERVATION_DEFENSE_BONUS);
+			return true;
+		case 'PRESERVATION_DURATION':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.PRESERVATION_DURATION);
+			return true;
+		case 'LOCKNLOAD_AMMO_TO_RELOAD':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.LOCKNLOAD_AMMO_TO_RELOAD);
+			return true;
+		case 'DEDICATION_MOBILITY':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.DEDICATION_MOBILITY);
+			return true;
+		case 'DEDICATION_COOLDOWN':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.DEDICATION_COOLDOWN);
+			return true;
+		case 'PREDATOR_AIM_BONUS':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.PREDATOR_AIM_BONUS);
+			return true;
+		case 'PREDATOR_CRIT_BONUS':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.PREDATOR_CRIT_BONUS);
+			return true;
+		case 'STILETTO_ARMOR_PIERCING':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.STILETTO_ARMOR_PIERCING);
+			return true;
+		
+		case 'THATS_CLOSE_ENOUGH_TILE_RANGE':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.THATS_CLOSE_ENOUGH_TILE_RANGE);	
+			return true;
+
+		case 'THATS_CLOSE_ENOUGH_COOLDOWN':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.THATS_CLOSE_ENOUGH_COOLDOWN);	
+			return true;
+			
+		case 'THATS_CLOSE_ENOUGH_PER_TARGET_COOLDOWN':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.THATS_CLOSE_ENOUGH_PER_TARGET_COOLDOWN);	
+			return true;
+					
+		case 'NONE_SHALL_PASS_TILE_RANGE':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.NONE_SHALL_PASS_TILE_RANGE);	
+			return true;
+									
+		case 'BRUTALITY_TILE_RADIUS':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.BRUTALITY_TILE_RADIUS);	
+			return true;
+									
+		case 'BRUTALITY_PANIC_CHANCE':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.BRUTALITY_PANIC_CHANCE);	
+			return true;
+		case 'WPN_HANDLING_MODIFIER':
+			OutString = string(int(class'X2Ability_XMBPerkAbilitySet'.default.WEAPONHANDLING_MULTIPLIER * -100));	
+			return true;
+		case 'ZONE_CONTROL_AIM_PENALTY':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.ZONE_CONTROL_AIM_PENALTY);
+			break;
+		case 'ZONE_CONTROL_MOBILITY_PENALTY':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.ZONE_CONTROL_MOBILITY_PENALTY);
+			break;
+		case  'BLIND_PROTOCOL_RADIUS_CV':
+			Outstring = string(int(class'X2Ability_XMBPerkAbilitySet'.default.BLIND_PROTOCOL_RADIUS_T1_BASE));
+			break;
+		case 'BLIND_PROTOCOL_RADIUS_MG':
+			Outstring = string(int(class'X2Ability_XMBPerkAbilitySet'.default.BLIND_PROTOCOL_RADIUS_T1_BASE + class'X2Ability_XMBPerkAbilitySet'.default.BLIND_PROTOCOL_RADIUS_T2_BONUS));
+			break;
+		case 'BLIND_PROTOCOL_RADIUS_BM':
+			Outstring = string(int(class'X2Ability_XMBPerkAbilitySet'.default.BLIND_PROTOCOL_RADIUS_T1_BASE + class'X2Ability_XMBPerkAbilitySet'.default.BLIND_PROTOCOL_RADIUS_T3_BONUS));
+			break;
+		case 'TARGET_FOCUS_AIM_BONUS':
+			Outstring = string(class'X2Ability_XMBPerkAbilitySet'.default.TARGETFOCUS_AIM_BONUS);
+			break;
+		case 'TARGET_FOCUS_PEN_BONUS':
+			Outstring = string(class'X2Ability_XMBPerkAbilitySet'.default.TARGETFOCUS_PIERCE);
+			break;
+		case 'AIM_ASSIST_AIM_BONUS':
+			Outstring = string(class'X2Ability_XMBPerkAbilitySet'.default.AIMINGASSIST_AIM_BONUS);
+			break;
+		case 'AIM_ASSIST_CRIT_BONUS':
+			Outstring = string(class'X2Ability_XMBPerkAbilitySet'.default.AIMINGASSIST_CRIT_BONUS);
+			break;
+		case 'SS_PEN':
+			Outstring = string(class'X2Ability_XMBPerkAbilitySet'.default.SS_PIERCE);
+			break;
+
+			
+			
+		
         default:
             return false;
     }
