@@ -5738,12 +5738,51 @@ LocPromotionPopupText = <Bullet/>"Gain +<Ability:TARGET_FOCUS_AIM_BONUS/> aim an
 
 [LW_AimAssist X2AbilityTemplate]
 LocFriendlyName = "Aim Assist"
+LocHelpText = "Gain additional +<Ability:AIM_ASSIST_AIM_BONUS/> aim and +<Ability:AIM_ASSIST_CRIT_BONUS/> against holotargeted units."
 LocLongDescription = "Gain additional +<Ability:AIM_ASSIST_AIM_BONUS/> aim and +<Ability:AIM_ASSIST_CRIT_BONUS/> against holotargeted units."
 LocPromotionPopupText = <Bullet/> "Gain additional +<Ability:AIM_ASSIST_AIM_BONUS/> aim and +<Ability:AIM_ASSIST_CRIT_BONUS/> against holotargeted units.<br/>"
 
+[LW_SuperCharge X2AbilityTemplate]
+LocFriendlyName = "SuperCharge"
+LocHelpText = "You can use your arc thrower to heal friendly mechanical units."
+LocLongDescription = "You can use your arc thrower to heal friendly mechanical units."
+LocPromotionPopupText = <Bullet/> "<Ability:SUPERCHARGE_CHARGES/> Charges that heal <Ability:SUPERCHARGE_HEAL/>" <br/>
+
 [LW_ShootingSharp X2AbilityTemplate]
 LocFriendlyName = "Shooting Sharp"
+LocHelpText = "Gain +<Ability:SS_PEN/> penetration against units in cover."
 LocLongDescription = "Gain +<Ability:SS_PEN/> penetration against units in cover."
-LocPromotionPopupText = <Bullet/> "Gain +<Ability:SS_PEN/> penetration against units in cover."
+LocPromotionPopupText = <Bullet/> "Gain +<Ability:SS_PEN/> penetration against units in cover."<br/>
+
+[LW_UnlimitedPower X2AbilityTemplate]
+LocFriendlyName = "Unlimited Power"
+LocHelpText = "Firing your arc thrower no longer ends your turn."
+LocLongDescription = "Firing your arc thrower no longer ends your turn."
+LocPromotionPopupText = <Bullet/>"Works only for the arc thrower stun ability.<br/>"
+
+[LW_Overkill X2AbilityTemplate]
+LocFriendlyName= "Overkill"
+LocHelpText = "Deal +<Ability:OVERKILL_DAMAGE/> more damage to units below 50% HP"
+LocLongDescription = "Deal +<Ability:OVERKILL_DAMAGE/> more damage to units below 50% HP"
+LocPromotionPopupText = <Bullet/>"Deal +<Ability:OVERKILL_DAMAGE/> more damage to units below 50% HP"
+
+[LW_Disassembly X2AbilityTemplate]
+LocFriendlyName= "Disassembly"
+LocHelpText = "Killing an enemy grants a stackable +<Ability:DISASSEMBLY_HACK/> hack bonus that lasts 3 turns."
+LocLongDescription = "Killing an enemy grants a stackable +<Ability:DISASSEMBLY_HACK/> hack bonus that lasts 3 turns."
+LocPromotionPopupText = "<Bullet/>Killing an enemy grants a stackable +<Ability:DISASSEMBLY_HACK/> hack bonus that lasts 3 turns.<br/>"
+
+[LW_LightningSlash X2AbilityTemplate]
+LocFriendlyName="Lightning Slash"
+LocLongDescription="Attack any enemy within blue movement range with your <Ability:SecondaryWeaponName/>. This attack does not end the turn."
+LocHelpText="Attack any enemy within blue movement range with your <Ability:SecondaryWeaponName/>. This attack does not end the turn."
+LocPromotionPopupText="<Bullet/>Attack any enemy within blue movement range with your <Ability:SecondaryWeaponName/>. This attack does not end the turn.<br/> <Bullet/>+<Ability:LIGHTNINGSLASH_COOLDOWN/> turn cooldown.<br/>"
+
+[LW_InspireAgility X2AbilityTemplate]
+LocFriendlyName="Inspire Agility"
+LocFlyOverText="Inspire Agility"
+LocLongDescription="Give a friendly unit <Ability:INSPIRE_DODGE/> Dodge until the start of your next turn. Whenever you kill an enemy, you gain an extra charge. Usable once per turn."
+LocHelpText="Give a friendly unit <Ability:INSPIRE_DODGE/> Dodge until the start of your next turn. Whenever you kill an enemy, you gain an extra charge. Usable once per turn."
+LocPromotionPopupText="<Bullet/>Give a friendly unit <Ability:+INSPIRE_DODGE/> Dodge until the start of your next turn. Whenever you kill an enemy, you gain an extra charge. Usable once per turn. <br/> <Bullet/> Starts with one charge <br/>"
 
 ; End Translation

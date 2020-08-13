@@ -42,6 +42,10 @@ var config int LICKYOURWOUNDS_MAXHEALAMOUNT;
 var config int PRESERVATION_DEFENSE_BONUS;
 var config int PRESERVATION_DURATION;
 
+var config int INSPIRE_DODGE;
+
+var config int LIGHTNINGSLASH_COOLDOWN;
+
 var config int LEAD_TARGET_COOLDOWN;
 
 var config int DEDICATION_COOLDOWN;
@@ -81,6 +85,8 @@ var config int SUPERCHARGE_HEAL;
 var config int MAIM_AMMO_COST;
 var config int MAIM_COOLDOWN;
 var config int MAIM_DURATION;
+
+var config array<name> AgentstHealEffectTypes;    
 
 var string Dissassemblybonustext;
 var name LeadTheTargetReserveActionName;
@@ -130,6 +136,10 @@ static function array<X2DataTemplate> CreateTemplates()
 	Templates.AddItem(WeaponHandling());
 	Templates.AddItem(AimingAssist());
 
+	Templates.AddItem(LightningSlash());
+	Templates.AddItem(InspireAgility());
+	Templates.AddItem(InspireAgilityTrigger());
+	
 	return Templates;
 }
 
@@ -836,6 +846,16 @@ static simulated function ProtocolSingleTarget_BuildVisualization(XComGameState 
 
 	//****************************************************************************************
 }
+
+static function X2AbilityTemplate NeutralizingAgents()
+{
+	local X2AbilityTemplate		Template;
+	
+	Template = PurePassive('LW_NeutralizingAgents', "img:///UILibrary_WOTC_APA_Class_Pack.perk_NeutralizingAgents", false, 'eAbilitySource_Perk', true);
+
+	return Template;
+}
+
 
 static function X2AbilityTemplate LW_ZoneOfControl()
 {
@@ -1600,6 +1620,8 @@ static function X2AbilityTemplate SuperCharge()
 
 	ActionPointCost = new class'X2AbilityCost_ActionPoints';
 	ActionPointCost.iNumPoints = 1;
+	ActionPointCost.bConsumeAllPoints = true;
+
 	Template.AbilityCosts.AddItem(ActionPointCost);
 
 	HealEffect = new class'X2Effect_ApplyMedikitHeal';
@@ -1778,7 +1800,130 @@ static function X2AbilityTemplate AimingAssist()
 	// Create the template using a helper function
 	return Passive('LW_AimAssist', "img:///UILibrary_XPACK_Common.PerkIcons.UIPerk_shot_circle", true, Effect);
 }
+
+static function X2AbilityTemplate LightningSlash()
+{
+	local X2AbilityTemplate									Template;
+	local X2AbilityToHitCalc_StandardMelee					StandardMelee;
+	local X2AbilityTarget_MovingMelee						MeleeTarget;
+	local X2Effect_ApplyWeaponDamage						WeaponDamageEffect;
+	local array<name>										SkipExclusions;
+	local X2AbilityCooldown									Cooldown;
+	local X2AbilityCost_ActionPoints						ActionPointCost;
+
+	`CREATE_X2ABILITY_TEMPLATE(Template, 'LW_LightningSlash');
+
+	Template.AbilitySourceName = 'eAbilitySource_Perk';
+	Template.BuildNewGameStateFn = TypicalAbility_BuildGameState;
+	Template.BuildVisualizationFn = TypicalAbility_BuildVisualization;
+	Template.eAbilityIconBehaviorHUD = eAbilityIconBehavior_HideSpecificErrors;
+	Template.HideErrors.AddItem('AA_WeaponIncompatible');
+	Template.CinescriptCameraType = "Ranger_Reaper";
+	Template.IconImage = "img:///LightningSlashIcon.UIPerk_lightningslash";
+	Template.bHideOnClassUnlock = false;
+	Template.ShotHUDPriority = class'UIUtilities_Tactical'.const.CLASS_SERGEANT_PRIORITY;
+	Template.AbilityConfirmSound = "TacticalUI_SwordConfirm";
 	
+	Cooldown = new class'X2AbilityCooldown';
+	Cooldown.iNumTurns = default.LIGHTNINGSLASH_COOLDOWN;
+	Template.AbilityCooldown = Cooldown;
+
+	ActionPointCost = new class'X2AbilityCost_ActionPoints';
+	ActionPointCost.iNumPoints = 1;
+	ActionPointCost.bfreeCost = false;
+	ActionPointCost.bConsumeAllPoints = false;
+	Template.AbilityCosts.AddItem(ActionPointCost);
+
+	StandardMelee = new class'X2AbilityToHitCalc_StandardMelee';
+	Template.AbilityToHitCalc = StandardMelee;
+	
+	MeleeTarget = new class'X2AbilityTarget_MovingMelee';
+	MeleeTarget.MovementRangeAdjustment = 1;
+	Template.AbilityTargetStyle = MeleeTarget;
+	Template.TargetingMethod = class'X2TargetingMethod_MeleePath';
+
+	Template.AbilityTriggers.AddItem(default.PlayerInputTrigger);
+	Template.AbilityTriggers.AddItem(new class'X2AbilityTrigger_EndOfMove');
+
+	// Target Conditions
+	//
+	Template.AbilityTargetConditions.AddItem(default.LivingHostileTargetProperty);
+	Template.AbilityTargetConditions.AddItem(default.MeleeVisibilityCondition);
+
+	// Shooter Conditions
+	//
+	Template.AbilityShooterConditions.AddItem(default.LivingShooterProperty);
+	SkipExclusions.AddItem(class'X2StatusEffects'.default.BurningName);
+	Template.AddShooterEffectExclusions(SkipExclusions);
+
+	// Damage Effect
+	//
+	WeaponDamageEffect = new class'X2Effect_ApplyWeaponDamage';
+	Template.AddTargetEffect(WeaponDamageEffect);
+	
+	Template.bAllowBonusWeaponEffects = true;
+	Template.bSkipMoveStop = true;
+	
+	// Voice events
+	//
+	Template.SourceMissSpeech = 'SwordMiss';
+
+	Template.BuildNewGameStateFn = TypicalMoveEndAbility_BuildGameState;
+	Template.BuildInterruptGameStateFn = TypicalMoveEndAbility_BuildInterruptGameState;
+
+	return Template;
+}
+
+static function X2AbilityTemplate InspireAgility()
+{
+	local X2Effect_PersistentStatChange Effect;
+	local X2AbilityTemplate Template;
+	local X2AbilityCooldown Cooldown;
+	// Create a persistent stat change effect that grants +50 Dodge
+	Effect = new class'X2Effect_PersistentStatChange';
+	Effect.EffectName = 'InspireAgility';
+	Effect.AddPersistentStatChange(eStat_Dodge, default.INSPIRE_DODGE);
+
+	// Prevent the effect from applying to a unit more than once
+	Effect.DuplicateResponse = eDupe_Ignore;
+
+	// The effect lasts until the beginning of the player's next turn
+	Effect.BuildPersistentEffect(1, false, false, false, eGameRule_PlayerTurnBegin);
+
+	// Add a visualization that plays a flyover over the target unit
+	Effect.VisualizationFn = EffectFlyOver_Visualization;
+
+	// Create a targeted buff that affects allies
+	Template = TargetedBuff('LW_InspireAgility', "img:///UILibrary_XPerkIconPack.UIPerk_move_command", true, Effect, class'UIUtilities_Tactical'.const.CLASS_SERGEANT_PRIORITY, eCost_Free);
+
+	// The ability starts out with a single charge
+	AddCharges(Template, 1);
+
+	// By default, you can target a unit with an ability even if it already has the effect the
+	// ability adds. This helper function prevents targetting units that already have the effect.
+	PreventStackingEffects(Template);
+	Cooldown = new class'X2AbilityCooldown';
+	Cooldown.iNumTurns = 1;
+	Template.AbilityCooldown = Cooldown;
+	// Add a secondary ability that will grant the bonus charges on kills
+	AddSecondaryAbility(Template, InspireAgilityTrigger());
+
+	return Template;
+}
+	
+static function X2AbilityTemplate InspireAgilityTrigger()
+{
+	local XMBEffect_AddAbilityCharges Effect;
+
+	// Create an effect that will add a bonus charge to the Inspire Agility ability
+	Effect = new class'XMBEffect_AddAbilityCharges';
+	Effect.AbilityNames.AddItem('LW_InspireAgility');
+	Effect.BonusCharges = 1;
+
+	// Create a triggered ability that activates when the unit gets a kill
+	return SelfTargetTrigger('LW_InspireAgilityTrigger', "img:///UILibrary_XPerkIconPack.UIPerk_move_command", false, Effect, 'KillMail');
+}
+
 defaultproperties
 {
 	LeadTheTargetReserveActionName = "leadthetarget"

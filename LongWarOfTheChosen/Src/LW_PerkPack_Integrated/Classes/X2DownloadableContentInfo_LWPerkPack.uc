@@ -221,10 +221,24 @@ static function bool AbilityTagExpandHandler(string InString, out string OutStri
 		case 'SS_PEN':
 			Outstring = string(class'X2Ability_XMBPerkAbilitySet'.default.SS_PIERCE);
 			break;
-
-			
-			
-		
+		case 'SUPERCHARGE_CHARGES':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.SUPERCHARGE_CHARGES);
+			break;
+		case 'SUPERCHARGE_HEAL':
+			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.SUPERCHARGE_HEAL);
+			break;	
+		case 'OVERKILL_DAMAGE':
+		OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.OverkillBonusDamage);
+		break;
+		case 'DISASSEMBLY_HACK':
+		OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.DISSASSEMBLY_HACK);
+		break;
+		case 'LIGHTNINGSLASH_COOLDOWN':
+		OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.LIGHTNINGSLASH_COOLDOWN);
+		break;
+		case 'INSPIRE_DODGE':
+		OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.INSPIRE_DODGE);
+		break;
         default:
             return false;
     }
