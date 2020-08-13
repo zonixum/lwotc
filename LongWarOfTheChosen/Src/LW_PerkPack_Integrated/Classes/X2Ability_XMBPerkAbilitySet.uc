@@ -109,7 +109,8 @@ static function array<X2DataTemplate> CreateTemplates()
 	Templates.AddItem(LW_BlindingProtocol());
 	Templates.AddItem(LW_ApexPredator());
 	Templates.AddItem(LW_ApexPredatorPanic());
-
+	Templates.AddItem(LW_TakeCover());
+	Templates.AddItem(LW_TakeCoverEVOverride());
 
 	Templates.AddItem(Concentration());
 	Templates.AddItem(LikeLightning());
@@ -851,7 +852,7 @@ static function X2AbilityTemplate NeutralizingAgents()
 {
 	local X2AbilityTemplate		Template;
 	
-	Template = PurePassive('LW_NeutralizingAgents', "img:///UILibrary_WOTC_APA_Class_Pack.perk_NeutralizingAgents", false, 'eAbilitySource_Perk', true);
+	Template = PurePassive('LW_NeutralizingAgents', "img:///UILibrary_LW_Class_Pack.perk_NeutralizingAgents", false, 'eAbilitySource_Perk', true);
 
 	return Template;
 }
@@ -926,7 +927,7 @@ static function X2AbilityTemplate LW_ApexPredator()
 	PanicTrigger = new class'X2Effect_LW_ApexPredator';
 	PanicTrigger.BuildPersistentEffect(1, true, false, false);
 
-	Template = Passive('LW_ApexPredator', "img:///UILibrary_WOTC_APA_Class_Pack.perk_ApexPredator", true, PanicTrigger);
+	Template = Passive('LW_ApexPredator', "img:///UILibrary_LW_Class_Pack.perk_ApexPredator", true, PanicTrigger);
 
 	Template.AdditionalAbilities.AddItem('LW_ApexPredatorPanic');
 
@@ -945,7 +946,7 @@ static function X2AbilityTemplate LW_ApexPredatorPanic()
 
 
 	`CREATE_X2ABILITY_TEMPLATE(Template, 'LW_ApexPredatorPanic');
-	Template.IconImage = "img:///UILibrary_WOTC_APA_Class_Pack.perk_ApexPredator";
+	Template.IconImage = "img:///UILibrary_LW_Class_Pack.perk_ApexPredator";
 	Template.AbilitySourceName = 'eAbilitySource_Perk';
 	Template.eAbilityIconBehaviorHUD = EAbilityIconBehavior_NeverShow;
 	Template.Hostility = eHostility_Neutral;
@@ -1738,7 +1739,7 @@ static function X2AbilityTemplate ShootingSharp()
 	ShootingEffect.BuildPersistentEffect(1, true, false, false, eGameRule_TacticalGameStart);
 	
 	// Activated ability that targets user
-	Template = Passive('LW_ShootingSharp', "img:///UILibrary_XPACK_Common.PerkIcons.UIPerk_shot_box", true, ShootingEffect);
+	Template = Passive('LW_ShootingSharp', "img:///UILibrary_XPerkIconPack.UIPerk_shot_box", true, ShootingEffect);
 
 	// If this ability is set up as a cross class ability, but it's not directly assigned to any classes, this is the weapon slot it will use
 	Template.DefaultSourceItemSlot = eInvSlot_PrimaryWeapon;
@@ -1771,7 +1772,7 @@ static function X2AbilityTemplate TargetFocus()
 	ShootingEffect.BuildPersistentEffect(1, true, false, false, eGameRule_TacticalGameStart);
 	
 	// Activated ability that targets user
-	Template = Passive('LW_ShootingSharp', "img:///UILibrary_XPACK_Common.PerkIcons.UIPerk_shot_box", true, ShootingEffect);
+	Template = Passive('LW_ShootingSharp', "img:///UILibrary_XPerkIconPack.UIPerk_shot_box", true, ShootingEffect);
 
 	// If this ability is set up as a cross class ability, but it's not directly assigned to any classes, this is the weapon slot it will use
 	Template.DefaultSourceItemSlot = eInvSlot_PrimaryWeapon;
@@ -1798,7 +1799,7 @@ static function X2AbilityTemplate AimingAssist()
 	Effect.AbilityTargetConditions.AddItem(NeedOneOfTheEffects);
 
 	// Create the template using a helper function
-	return Passive('LW_AimAssist', "img:///UILibrary_XPACK_Common.PerkIcons.UIPerk_shot_circle", true, Effect);
+	return Passive('LW_AimAssist', "img:///UILibrary_XPerkIconPack.UIPerk_shot_circle", true, Effect);
 }
 
 static function X2AbilityTemplate LightningSlash()
@@ -1819,7 +1820,7 @@ static function X2AbilityTemplate LightningSlash()
 	Template.eAbilityIconBehaviorHUD = eAbilityIconBehavior_HideSpecificErrors;
 	Template.HideErrors.AddItem('AA_WeaponIncompatible');
 	Template.CinescriptCameraType = "Ranger_Reaper";
-	Template.IconImage = "img:///LightningSlashIcon.UIPerk_lightningslash";
+	Template.IconImage = "img:///UILibrary_XPerkIconPack.UIPerk_lightning_knife";
 	Template.bHideOnClassUnlock = false;
 	Template.ShotHUDPriority = class'UIUtilities_Tactical'.const.CLASS_SERGEANT_PRIORITY;
 	Template.AbilityConfirmSound = "TacticalUI_SwordConfirm";
@@ -1923,7 +1924,52 @@ static function X2AbilityTemplate InspireAgilityTrigger()
 	// Create a triggered ability that activates when the unit gets a kill
 	return SelfTargetTrigger('LW_InspireAgilityTrigger', "img:///UILibrary_XPerkIconPack.UIPerk_move_command", false, Effect, 'KillMail');
 }
+static function X2AbilityTemplate LW_TakeCover()
+{
+	
+	local X2AbilityTemplate										Template;
+	local X2Effect_LW_TakeCover							ActionEffect;
+	local X2Effect_Persistent									TriggerEffect;
+	
 
+	Template = CreatePassiveAbility('LW_TakeCover', "img:///UILibrary_LW_Class_Pack.perk_TakeCover");
+
+
+	// Effect that holds the ELR registers/functions and handles enabling the conditional action point type
+	ActionEffect = new class'X2Effect_LW_TakeCover';
+	ActionEffect.EffectName = 'LW_TakeCoverEffect';
+	ActionEffect.DuplicateResponse = eDupe_Ignore;
+	ActionEffect.BuildPersistentEffect(1, true, false);
+	Template.AddTargetEffect(ActionEffect);
+
+
+	// Persistent effect that evaluates conditions to trigger the HunkerDown ability
+	TriggerEffect = new class'X2Effect_Persistent';
+	TriggerEffect.BuildPersistentEffect(1, true, false, false, eGameRule_PlayerTurnEnd);
+	TriggerEffect.EffectTickedFn = NonMoveActionsThisTurn_EffectTicked;
+	TriggerEffect.EffectName = 'LW_NonMoveActionsThisTurn_Evaluate';
+	TriggerEffect.DuplicateResponse = eDupe_Ignore;
+	Template.AddTargetEffect(TriggerEffect);
+
+	return Template;
+}
+
+// TakeCoverEVOverride - Passive: Overrides Ever-Vigilant, when present, so that Take Cover can properly trigger both effects
+static function X2AbilityTemplate LW_TakeCoverEVOverride()
+{
+
+	local X2AbilityTemplate							Template;
+	local X2Effect_Persistent						VigilantEffect;
+
+
+	Template = CreatePassiveAbility('LW_TakeCoverEVOverride', "img:///UILibrary_LW_Class_Pack.perk_TakeCover",, False);
+
+
+	Template.OverrideAbilities.AddItem('EverVigilantTrigger');
+
+
+	return Template;
+}
 defaultproperties
 {
 	LeadTheTargetReserveActionName = "leadthetarget"

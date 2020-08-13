@@ -5785,4 +5785,10 @@ LocLongDescription="Give a friendly unit <Ability:INSPIRE_DODGE/> Dodge until th
 LocHelpText="Give a friendly unit <Ability:INSPIRE_DODGE/> Dodge until the start of your next turn. Whenever you kill an enemy, you gain an extra charge. Usable once per turn."
 LocPromotionPopupText="<Bullet/>Give a friendly unit <Ability:+INSPIRE_DODGE/> Dodge until the start of your next turn. Whenever you kill an enemy, you gain an extra charge. Usable once per turn. <br/> <Bullet/> Starts with one charge <br/>"
 
+[LW_TakeCover X2AbilityTemplate]
+LocFriendlyName = "Take Cover!"
+LocHelpText = "The <Ability:ClassName/> can now use movement-only action points to Hunker Down. Automatically Hunker Down at the end of your turn if you only took movement actions."
+LocLongDescription = "The <Ability:ClassName/> can now use movement-only action points to Hunker Down. Automatically Hunker Down at the end of your turn if you only took movement actions."
+LocPromotionPopupText = "The <Ability:ClassName/> can now use movement-only action points to Hunker Down. Automatically Hunker Down at the end of your turn if you only took movement actions. <br/><br/><Bullet/> The automatic activation of Hunker Down at the end of the turn functions like Ever-Vigilant.<br/><Bullet/> The automatic activation of Hunker Down at the end of the turn will not trigger if the unit is impaired or panicking."
+
 ; End Translation
