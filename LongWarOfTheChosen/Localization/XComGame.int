@@ -5661,21 +5661,7 @@ LocLongDescription="Activate this ability to make your next arcthrower shot a fr
 LocHelpText="Activate this ability to make your next arcthrower shot a free action. <Ability:RAPID_STUN_COOLDOWN/> turn cooldown."
 LocPromotionPopupText="<Bullet/> Activate this ability to make your next arcthrower shot a free action. <Ability:RAPID_STUN_COOLDOWN/> turn cooldown.<br/><Bullet/> Applies to the abilities Stun, Arc Pulser as well as Chain Lightning.<br/>"
 
-[LW_ThatsCloseEnough X2AbilityTemplate]
-LocFriendlyName="That's Close Enough"
-LocFlyOverText="That's Close Enough"
-LocLongDescription="During enemy turns, fire your arcthrower at any visible enemy within <Ability:THATS_CLOSE_ENOUGH_TILE_RANGE/> tiles who moves or fires."
-LocHelpText="During enemy turns, fire your arcthrower at any visible enemy within four tiles who moves or fires."
-LocPromotionPopupText="<Bullet/> Will not trigger if soldier is concealed.<br/><Bullet/> This ability can trigger <Ability:THATS_CLOSE_ENOUGH_PER_TARGET_COOLDOWN/> time(s) per turn.<br/>"
-
-[LW_RapidStun X2AbilityTemplate]
-LocFriendlyName="Quick Zap"
-LocFlyOverText="Quick Zap"
-LocLongDescription="Activate this ability to make your next arcthrower shot a free action. <Ability:RAPID_STUN_COOLDOWN/> turn cooldown."
-LocHelpText="Activate this ability to make your next arcthrower shot a free action. <Ability:RAPID_STUN_COOLDOWN/> turn cooldown."
-LocPromotionPopupText="<Bullet/> Activate this ability to make your next arcthrower shot a free action. <Ability:RAPID_STUN_COOLDOWN/> turn cooldown.<br/><Bullet/> Applies to the abilities Stun, Arc Pulser as well as Chain Lightning.<br/>"
-
-[Hipfire X2AbilityTemplate]
+[LW_Hipfire X2AbilityTemplate]
 LocFriendlyName="Hipfire"
 LocLongDescription="Firing the Sawed-Off Shotgun with no longer ends the turn."
 LocHelpText="Firing the Sawed-Off Shotgun with no longer ends the turn."
