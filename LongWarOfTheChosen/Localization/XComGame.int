@@ -287,8 +287,8 @@ LocPromotionPopupText="<Bullet/> Coup de Grâce can only target non-robotic, dis
 [CoupDeGrace2 X2AbilityTemplate]
 LocFriendlyName="Coup de Grâce"
 LocFlyOverText="Coup de Grâce"
-LocLongDescription="Bonus to hit, damage, and critical chance with a melee weapon against a disoriented, stunned or panicking enemy."
-LocHelpText="Bonus to hit, damage, and critical chance with a melee weapon against a disoriented, stunned, or panicking  enemy."
+LocLongDescription="Bonus to hit, damage, and critical chance with your <Ability:WeaponName/> against a disoriented, stunned or panicking enemy."
+LocHelpText="Bonus to hit, damage, and critical chance with your <Ability:WeaponName/> against a disoriented, stunned, or panicking  enemy."
 LocPromotionPopupText="<Bullet/> Coup de Grâce grants +50 aim, +50 critical chance and +2 damage against stunned and panicking enemies.<br/><Bullet/> The bonuses are reduced against disoriented enemies."
 
 [Tradecraft X2AbilityTemplate]
@@ -5596,7 +5596,7 @@ LocFriendlyName="Open Fire"
 LocFlyOverText="Open Fire
 LocLongDescription="Gain <Ability:+ToHit/> Aim and <Ability:+Crit/> Crit against targets that are at full health."
 LocHelpText="Gain <Ability:+ToHit/> Aim and <Ability:+Crit/> Crit against targets that are at full health."
-LocPromotionPopupText="<Bullet/> Gain <Ability:+ToHit/> Aim and <Ability:+Crit/> Crit against targets that are at full health.<br/><Bullet/> Passive.<br/>"
+LocPromotionPopupText="<Bullet/> Gain <Ability:+ToHit/> Aim and <Ability:+Crit/> Crit against targets that are at full health.<br/> <Bullet/> Passive.<br/>"
 
 [LW_WatchThemRun X2AbilityTemplate]
 LocFriendlyName="Watch Them Run"
@@ -5701,9 +5701,9 @@ LocPromotionPopupText="<Bullet/> By cleverly combining the effects of Brutality 
 
 [LW_ZoneOfControl X2AbilityTemplate]
 LocFriendlyName = "Zone of Control"
-LocHelpText = "All enemies within the <Ability:ClassName/>'s CQB Dominance radius<Ability:CQB_DOMINANCE_RADIUS/> suffer penalties of <font color='#CA7200'><Ability:ZONE_CONTROL_AIM_PENALTY/></font> Aim and <font color='#CA7200'><Ability:ZONE_CONTROL_MOBILITY_PENALTY/></font> Mobility."
+LocHelpText = "All enemies within the <Ability:ClassName/>'s CQB Dominance radius<Ability:CQB_DOMINANCE_RADIUS/> suffer penalties of <Ability:ZONE_CONTROL_AIM_PENALTY/> Aim and <Ability:ZONE_CONTROL_MOBILITY_PENALTY/> Mobility."
 LocLongDescription = "All enemies within the <Ability:ClassName/>'s CQB Dominance radius suffer penalties to Aim and Mobility."
-LocPromotionPopupText = "All enemies within the <Ability:ClassName/>'s CQB Dominance radius suffer penalties of <font color='#CA7200'><Ability:ZONE_CONTROL_AIM_PENALTY/></font> Aim and <font color='#CA7200'><Ability:ZONE_CONTROL_MOBILITY_PENALTY/></font> Mobility."
+LocPromotionPopupText = "<Bullet/> All enemies within the <Ability:ClassName/>'s CQB Dominance radius suffer penalties of <Ability:ZONE_CONTROL_AIM_PENALTY/> Aim and <Ability:ZONE_CONTROL_MOBILITY_PENALTY/ Mobility.<br/>"
 
 [LW_ApexPredator X2AbilityTemplate]
 LocFriendlyName = "Apex Predator"
@@ -5717,14 +5717,14 @@ LocFriendlyName = "Blinding Protocol"
 LocFlyOverText = "Blinding Protocol"
 LocHelpText = "Send the Gremlin to deploy a small flashbang on an enemy target, disorienting all enemy units within a small radius (reducing their Aim by <Ability:DISORIENTED_AIM_ADJUST/>and Mobility by <Ability:DISORIENTED_MOBILITY_ADJUST/>"
 LocLongDescription = Send the Gremlin to deploy a small flashbang on an enemy target, disorienting all enemy units within a small radius (reducing their Aim by <Ability:DISORIENTED_AIM_ADJUST/> and Mobility by <Ability:DISORIENTED_MOBILITY_ADJUST/>
-LocPromotionPopupText = <Bullet/> Works with squadsight. <br/> <Bullet/> <Ability:BLIND_PROTOCOL_COOLDOWN/> turn cooldown. <br/> 
+LocPromotionPopupText = "<Bullet/> Works with squadsight. <br/> <Bullet/> <Ability:BLIND_PROTOCOL_COOLDOWN/> turn cooldown. <br/> "
 
 [LW_LeadTheTarget X2AbilityTemplate]
 LocFriendlyName = "Lead The Target"
 LocFlyOverText = "Lead The Target"
 LocHelpText = "Carefully lead the target, granting a +<Ability:LEAD_TARGET_AIM_BONUS/>% increased chance to hit, but delaying the shot until the enemies turn. Takes two actions. <Ability:LEAD_TARGET_COOLDOWN/> turn cooldown."
 LocLongDescription = "Carefully lead the target, granting a +<Ability:LEAD_TARGET_AIM_BONUS/>% increased chance to hit, but delaying the shot until the enemies turn. Takes two actions. <Ability:LEAD_TARGET_COOLDOWN/> turn cooldown."
-LocPromotionPopupText = <Bullet/>"Carefully lead the target, granting a +<Ability:LEAD_TARGET_AIM_BONUS/>% increased chance to hit, but delaying the shot until the enemies turn. Takes two actions. <Ability:LEAD_TARGET_COOLDOWN/> turn cooldown <br/>"
+LocPromotionPopupText = "<Bullet/> Carefully lead the target, granting a +<Ability:LEAD_TARGET_AIM_BONUS/>% increased chance to hit, but delaying the shot until the enemies turn. Takes two actions. <Ability:LEAD_TARGET_COOLDOWN/> turn cooldown <br/>"
 
 [LW_LeadTheTargetShot X2AbilityTemplate]
 LocFriendlyName = "Lead The Target"
@@ -5734,37 +5734,37 @@ LocFlyOverText = "Lead The Target"
 LocFriendlyName = "Target Focus"
 LocHelpText = "Gain +<Ability:TARGET_FOCUS_AIM_BONUS/> aim and +<Ability:TARGET_FOCUS_PEN_BONUS/> penetration against enemies that don't take cover."
 LocLongDescription = "Gain +<Ability:TARGET_FOCUS_AIM_BONUS/> aim and +<Ability:TARGET_FOCUS_PEN_BONUS/> penetration against enemies that don't take cover."
-LocPromotionPopupText = <Bullet/>"Gain +<Ability:TARGET_FOCUS_AIM_BONUS/> aim and +<Ability:TARGET_FOCUS_PEN_BONUS/> penetration against enemies that don't take cover.<br/>"
+LocPromotionPopupText = "<Bullet/> Gain +<Ability:TARGET_FOCUS_AIM_BONUS/> aim and +<Ability:TARGET_FOCUS_PEN_BONUS/> penetration against enemies that don't take cover. <br/>"
 
 [LW_AimAssist X2AbilityTemplate]
 LocFriendlyName = "Aim Assist"
 LocHelpText = "Gain additional +<Ability:AIM_ASSIST_AIM_BONUS/> aim and +<Ability:AIM_ASSIST_CRIT_BONUS/> against holotargeted units."
 LocLongDescription = "Gain additional +<Ability:AIM_ASSIST_AIM_BONUS/> aim and +<Ability:AIM_ASSIST_CRIT_BONUS/> against holotargeted units."
-LocPromotionPopupText = <Bullet/> "Gain additional +<Ability:AIM_ASSIST_AIM_BONUS/> aim and +<Ability:AIM_ASSIST_CRIT_BONUS/> against holotargeted units.<br/>"
+LocPromotionPopupText = "<Bullet/> Gain additional +<Ability:AIM_ASSIST_AIM_BONUS/> aim and +<Ability:AIM_ASSIST_CRIT_BONUS/> against holotargeted units. <br/>"
 
 [LW_SuperCharge X2AbilityTemplate]
 LocFriendlyName = "SuperCharge"
 LocHelpText = "You can use your arc thrower to heal friendly mechanical units."
 LocLongDescription = "You can use your arc thrower to heal friendly mechanical units."
-LocPromotionPopupText = <Bullet/> "<Ability:SUPERCHARGE_CHARGES/> Charges that heal <Ability:SUPERCHARGE_HEAL/>" <br/>
+LocPromotionPopupText = "<Bullet/> <Ability:SUPERCHARGE_CHARGES/> Charges that heal <Ability:SUPERCHARGE_HEAL/> <br/>"
 
 [LW_ShootingSharp X2AbilityTemplate]
 LocFriendlyName = "Shooting Sharp"
 LocHelpText = "Gain +<Ability:SS_PEN/> penetration against units in cover."
 LocLongDescription = "Gain +<Ability:SS_PEN/> penetration against units in cover."
-LocPromotionPopupText = <Bullet/> "Gain +<Ability:SS_PEN/> penetration against units in cover."<br/>
+LocPromotionPopupText = "<Bullet/> Gain +<Ability:SS_PEN/> penetration against units in cover. <br/>"
 
 [LW_UnlimitedPower X2AbilityTemplate]
 LocFriendlyName = "Unlimited Power"
 LocHelpText = "Firing your arc thrower no longer ends your turn."
 LocLongDescription = "Firing your arc thrower no longer ends your turn."
-LocPromotionPopupText = <Bullet/>"Works only for the arc thrower stun ability.<br/>"
+LocPromotionPopupText = "<Bullet/> Works only for the arc thrower stun ability. <br/>"
 
 [LW_Overkill X2AbilityTemplate]
-LocFriendlyName= "Overkill"
+LocFriendlyName = "Overkill"
 LocHelpText = "Deal +<Ability:OVERKILL_DAMAGE/> more damage to units below 50% HP"
 LocLongDescription = "Deal +<Ability:OVERKILL_DAMAGE/> more damage to units below 50% HP"
-LocPromotionPopupText = <Bullet/>"Deal +<Ability:OVERKILL_DAMAGE/> more damage to units below 50% HP"
+LocPromotionPopupText = "<Bullet/> Deal +<Ability:OVERKILL_DAMAGE/> more damage to units below 50% HP <br/>"
 
 [LW_Disassembly X2AbilityTemplate]
 LocFriendlyName= "Disassembly"
@@ -5783,12 +5783,6 @@ LocFriendlyName="Inspire Agility"
 LocFlyOverText="Inspire Agility"
 LocLongDescription="Give a friendly unit <Ability:INSPIRE_DODGE/> Dodge until the start of your next turn. Whenever you kill an enemy, you gain an extra charge. Usable once per turn."
 LocHelpText="Give a friendly unit <Ability:INSPIRE_DODGE/> Dodge until the start of your next turn. Whenever you kill an enemy, you gain an extra charge. Usable once per turn."
-LocPromotionPopupText="<Bullet/>Give a friendly unit <Ability:+INSPIRE_DODGE/> Dodge until the start of your next turn. Whenever you kill an enemy, you gain an extra charge. Usable once per turn. <br/> <Bullet/> Starts with one charge <br/>"
-
-[LW_TakeCover X2AbilityTemplate]
-LocFriendlyName = "Take Cover!"
-LocHelpText = "The <Ability:ClassName/> can now use movement-only action points to Hunker Down. Automatically Hunker Down at the end of your turn if you only took movement actions."
-LocLongDescription = "The <Ability:ClassName/> can now use movement-only action points to Hunker Down. Automatically Hunker Down at the end of your turn if you only took movement actions."
-LocPromotionPopupText = "The <Ability:ClassName/> can now use movement-only action points to Hunker Down. Automatically Hunker Down at the end of your turn if you only took movement actions. <br/><br/><Bullet/> The automatic activation of Hunker Down at the end of the turn functions like Ever-Vigilant.<br/><Bullet/> The automatic activation of Hunker Down at the end of the turn will not trigger if the unit is impaired or panicking."
+LocPromotionPopupText="<Bullet/> Give a friendly unit <Ability:+INSPIRE_DODGE/> Dodge until the start of your next turn. Whenever you kill an enemy, you gain an extra charge. Usable once per turn. <br/> <Bullet/> Starts with one charge <br/>"
 
 ; End Translation

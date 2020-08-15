@@ -163,28 +163,22 @@ static function bool AbilityTagExpandHandler(string InString, out string OutStri
 			return true;
 		case 'STILETTO_ARMOR_PIERCING':
 			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.STILETTO_ARMOR_PIERCING);
-			return true;
-		
+			return true;		
 		case 'THATS_CLOSE_ENOUGH_TILE_RANGE':
 			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.THATS_CLOSE_ENOUGH_TILE_RANGE);	
 			return true;
-
 		case 'THATS_CLOSE_ENOUGH_COOLDOWN':
 			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.THATS_CLOSE_ENOUGH_COOLDOWN);	
 			return true;
-			
 		case 'THATS_CLOSE_ENOUGH_PER_TARGET_COOLDOWN':
 			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.THATS_CLOSE_ENOUGH_PER_TARGET_COOLDOWN);	
 			return true;
-					
 		case 'NONE_SHALL_PASS_TILE_RANGE':
 			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.NONE_SHALL_PASS_TILE_RANGE);	
-			return true;
-									
+			return true;				
 		case 'BRUTALITY_TILE_RADIUS':
 			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.BRUTALITY_TILE_RADIUS);	
-			return true;
-									
+			return true;					
 		case 'BRUTALITY_PANIC_CHANCE':
 			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.BRUTALITY_PANIC_CHANCE);	
 			return true;
@@ -193,52 +187,58 @@ static function bool AbilityTagExpandHandler(string InString, out string OutStri
 			return true;
 		case 'ZONE_CONTROL_AIM_PENALTY':
 			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.ZONE_CONTROL_AIM_PENALTY);
-			break;
+			return true;
 		case 'ZONE_CONTROL_MOBILITY_PENALTY':
 			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.ZONE_CONTROL_MOBILITY_PENALTY);
-			break;
+			return true;
 		case  'BLIND_PROTOCOL_RADIUS_CV':
 			Outstring = string(int(class'X2Ability_XMBPerkAbilitySet'.default.BLIND_PROTOCOL_RADIUS_T1_BASE));
-			break;
+			return true;
 		case 'BLIND_PROTOCOL_RADIUS_MG':
 			Outstring = string(int(class'X2Ability_XMBPerkAbilitySet'.default.BLIND_PROTOCOL_RADIUS_T1_BASE + class'X2Ability_XMBPerkAbilitySet'.default.BLIND_PROTOCOL_RADIUS_T2_BONUS));
-			break;
+			return true;
 		case 'BLIND_PROTOCOL_RADIUS_BM':
 			Outstring = string(int(class'X2Ability_XMBPerkAbilitySet'.default.BLIND_PROTOCOL_RADIUS_T1_BASE + class'X2Ability_XMBPerkAbilitySet'.default.BLIND_PROTOCOL_RADIUS_T3_BONUS));
-			break;
+			return true;
 		case 'TARGET_FOCUS_AIM_BONUS':
 			Outstring = string(class'X2Ability_XMBPerkAbilitySet'.default.TARGETFOCUS_AIM_BONUS);
-			break;
+			return true;
 		case 'TARGET_FOCUS_PEN_BONUS':
 			Outstring = string(class'X2Ability_XMBPerkAbilitySet'.default.TARGETFOCUS_PIERCE);
-			break;
+			return true;
 		case 'AIM_ASSIST_AIM_BONUS':
 			Outstring = string(class'X2Ability_XMBPerkAbilitySet'.default.AIMINGASSIST_AIM_BONUS);
-			break;
+			return true;
 		case 'AIM_ASSIST_CRIT_BONUS':
 			Outstring = string(class'X2Ability_XMBPerkAbilitySet'.default.AIMINGASSIST_CRIT_BONUS);
-			break;
+			return true;
 		case 'SS_PEN':
 			Outstring = string(class'X2Ability_XMBPerkAbilitySet'.default.SS_PIERCE);
-			break;
+			return true;
 		case 'SUPERCHARGE_CHARGES':
 			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.SUPERCHARGE_CHARGES);
-			break;
+			return true;
 		case 'SUPERCHARGE_HEAL':
 			OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.SUPERCHARGE_HEAL);
-			break;	
+			return true;	
 		case 'OVERKILL_DAMAGE':
 		OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.OverkillBonusDamage);
-		break;
+			return true;
 		case 'DISASSEMBLY_HACK':
 		OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.DISSASSEMBLY_HACK);
-		break;
+			return true;
 		case 'LIGHTNINGSLASH_COOLDOWN':
 		OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.LIGHTNINGSLASH_COOLDOWN);
-		break;
+			return true;
 		case 'INSPIRE_DODGE':
 		OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.INSPIRE_DODGE);
-		break;
+			return true;
+		case 'LEAD_TARGET_AIM_BONUS':
+		OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.LEAD_TARGET_AIM_BONUS);
+			return true;
+		case 'LEAD_TARGET_COOLDOWN':
+		OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.LEAD_TARGET_COOLDOWN);
+			return true;
         default:
             return false;
     }
