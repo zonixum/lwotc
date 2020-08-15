@@ -63,6 +63,7 @@ var config int BLINDING_PROTOCOL_COOLDOWN;
 
 var config int ZONE_CONTROL_MOBILITY_PENALTY;
 var config int ZONE_CONTROL_AIM_PENALTY;
+var config float ZONE_CONTROL_RADIUS;
 
 var config int AIMINGASSIST_AIM_BONUS;
 var config int AIMINGASSIST_CRIT_BONUS;
@@ -110,7 +111,8 @@ static function array<X2DataTemplate> CreateTemplates()
 	Templates.AddItem(LW_ApexPredator());
 	Templates.AddItem(LW_ApexPredatorPanic());
 	Templates.AddItem(NeutralizingAgents());
-
+	Templates.AddItem(LW_ZoneOfControl());
+	
 	
 	Templates.AddItem(Concentration());
 	Templates.AddItem(LikeLightning());
@@ -237,7 +239,7 @@ static function X2AbilityTemplate Hipfire()
 {
 	local X2AbilityTemplate		Template;
 	
-	Template = PurePassive('LW_Hipfire', "img:///UILibrary_LWSecondariesWOTC.LW_AbilityPointBlank", false, 'eAbilitySource_Perk', true);
+	Template = PurePassive('LW_Hipfire', "img:///UILibrary_XPACK_Common.PerkIcons.UIPerk_strike", false, 'eAbilitySource_Perk', true);
 
 
 	return Template;
@@ -869,7 +871,7 @@ static function X2AbilityTemplate LW_ZoneOfControl()
 	local X2Condition_LW_WithinCQBRange							RangeCondition;
 	local XMBEffect_ConditionalStatChange						ZOCEffect;
 	local X2Effect_Persistent									IconEffect;
-
+	local X2Effect_SetUnitValue									SetUnitValue;					
 	
 	`CREATE_X2ABILITY_TEMPLATE (Template, 'LW_ZoneOfControl');
 	Template.IconImage = "img:///UILibrary_WOTC_APA_Class_Pack.perk_ZoneOfControl";
@@ -889,6 +891,13 @@ static function X2AbilityTemplate LW_ZoneOfControl()
 	IconEffect.SetDisplayInfo(ePerkBuff_Passive, Template.LocFriendlyName, Template.LocHelpText, Template.IconImage, true,, Template.AbilitySourceName);
 	IconEffect.EffectName = 'ZoneofcontrolIcon';
 	Template.AddTargetEffect(IconEffect);
+
+	// Set CQB Range according to rank conditions
+	SetUnitValue = new class'X2Effect_SetUnitValue';
+	SetUnitValue.UnitName = default.CQB_DOMINANCE_RADIUS_NAME;
+	SetUnitValue.NewValueToSet = default.ZONE_CONTROL_RADIUS;
+	SetUnitValue.CleanupType = eCleanup_BeginTactical;
+	Template.AddTargetEffect(SetUnitValue);
 
 
 	// Setup MultiTarget and conditions
@@ -1119,7 +1128,7 @@ static function X2AbilityTemplate LikeLightningRefund()
 	local X2Effect_Immobilize Effect;
 	
 	// Create the template using a helper function
-	Template = Attack('LW_Maim', "img:///UILibrary_FavidsPerkPack.UIPerk_Maim", false, none, class'UIUtilities_Tactical'.const.CLASS_LIEUTENANT_PRIORITY, eCost_WeaponConsumeAll, default.MAIM_AMMO_COST);
+	Template = Attack('LW_Maim', "img:///UILibrary_XPerkIconPack.UIPerk_shot_blossom", false, none, class'UIUtilities_Tactical'.const.CLASS_LIEUTENANT_PRIORITY, eCost_WeaponConsumeAll, default.MAIM_AMMO_COST);
 
 	// Cooldown
 	AddCooldown(Template, default.MAIM_COOLDOWN);
@@ -1778,7 +1787,7 @@ static function X2AbilityTemplate TargetFocus()
 	ShootingEffect.BuildPersistentEffect(1, true, false, false, eGameRule_TacticalGameStart);
 	
 	// Activated ability that targets user
-	Template = Passive('LW_TargetFocus', "img:///UILibrary_XPerkIconPack.UIPerk_shot_box", true, ShootingEffect);
+	Template = Passive('LW_TargetFocus', "img:///UILibrary_XPerkIconPack.UIPerk_enemy_shot_overwatch", true, ShootingEffect);
 
 	// If this ability is set up as a cross class ability, but it's not directly assigned to any classes, this is the weapon slot it will use
 	Template.DefaultSourceItemSlot = eInvSlot_PrimaryWeapon;

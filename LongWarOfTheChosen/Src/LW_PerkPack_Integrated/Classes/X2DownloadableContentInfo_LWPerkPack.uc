@@ -239,6 +239,8 @@ static function bool AbilityTagExpandHandler(string InString, out string OutStri
 		case 'LEAD_TARGET_COOLDOWN':
 		OutString = string(class'X2Ability_XMBPerkAbilitySet'.default.LEAD_TARGET_COOLDOWN);
 			return true;
+		case 'CQB_DOMINANCE_RADIUS':
+		OutString = string(int(class'X2Ability_XMBPerkAbilitySet'.default.ZONE_CONTROL_RADIUS));
         default:
             return false;
     }

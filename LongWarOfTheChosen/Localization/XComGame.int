@@ -5663,8 +5663,8 @@ LocPromotionPopupText="<Bullet/> Activate this ability to make your next arcthro
 
 [LW_Hipfire X2AbilityTemplate]
 LocFriendlyName="Hipfire"
-LocLongDescription="Firing the Sawed-Off Shotgun with no longer ends the turn."
-LocHelpText="Firing the Sawed-Off Shotgun with no longer ends the turn."
+LocLongDescription="Firing the Sawed-Off Shotgun no longer ends the turn."
+LocHelpText="Firing the Sawed-Off Shotgun no longer ends the turn."
 LocFlyOverText="Hipfire"
 LocPromotionPopupText="<Bullet/> Point Blank only requires one action to fire so can be used twice, after moving or before moving.<br/><Bullet/>"
 
@@ -5743,7 +5743,7 @@ LocLongDescription = "Gain additional +<Ability:AIM_ASSIST_AIM_BONUS/> aim and +
 LocPromotionPopupText = "<Bullet/> Gain additional +<Ability:AIM_ASSIST_AIM_BONUS/> aim and +<Ability:AIM_ASSIST_CRIT_BONUS/> against holotargeted units. <br/>"
 
 [LW_SuperCharge X2AbilityTemplate]
-LocFriendlyName = "SuperCharge"
+LocFriendlyName = "Arc Welder"
 LocHelpText = "You can use your arc thrower to heal friendly mechanical units."
 LocLongDescription = "You can use your arc thrower to heal friendly mechanical units."
 LocPromotionPopupText = "<Bullet/> <Ability:SUPERCHARGE_CHARGES/> Charges that heal <Ability:SUPERCHARGE_HEAL/> <br/>"
